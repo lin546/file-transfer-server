@@ -35,6 +35,13 @@ int main()
 		exit(1);
 	}
 
+	// 设置SO_REUSEADDR选项，允许端口重用
+    int opt = 1;
+    if (setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt))) {
+        perror("setsockopt failed");
+        exit(EXIT_FAILURE);
+    }
+	
 	servaddr.sin_family = AF_INET;
 	servaddr.sin_port = htons(PORT);
 	servaddr.sin_addr.s_addr = inet_addr("127.0.0.1");
