@@ -169,6 +169,8 @@ void filelist(void)
 	struct dirent *dirent;
 	strcat(list,"<ol>");
 	while((dirent = readdir(dir)) != NULL){
+		if(strcmp(dirent->d_name, ".") == 0 || strcmp(dirent->d_name, "..") == 0)
+			continue;
 		strcat(list,"<li>");
 		strcat(list,dirent->d_name);
 		strcat(list,"</li>");
