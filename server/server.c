@@ -167,15 +167,17 @@ void filelist(void)
 	DIR *dir = opendir("./files");
 	char list[1024] = {};
 	struct dirent *dirent;
-	strcat(list,"<ol>");
+  	int first = 1;
 	while((dirent = readdir(dir)) != NULL){
 		if(strcmp(dirent->d_name, ".") == 0 || strcmp(dirent->d_name, "..") == 0)
 			continue;
-		strcat(list,"<li>");
+		if (!first) {
+			strcat(list,"|");
+		}
 		strcat(list,dirent->d_name);
-		strcat(list,"</li>");
+		first = 0;
 	}
-	strcat(list,"</ol>");
+	
 	
 	write(clifd,list,strlen(list));
 	closedir(dir);
