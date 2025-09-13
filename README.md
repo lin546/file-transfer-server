@@ -1,4 +1,4 @@
-# file-transfer
+# file-transfer-server
 
 基于Socket的文件传输系统（Using Linux C + NodeJS + Electron + Express）。
 
@@ -13,9 +13,7 @@ make
 Client端：
 
 ```
-cd static
-node controller.js
-cd ../
+npm run prepare
 npm start
 ```
 
@@ -25,4 +23,4 @@ npm start
 
 ## About
 
-该项目为学习Socket的练手项目，因为之前没有接触过网络编程和NodeJS，故必会有设计或实现不合理的地方。仅供自己学习记录。
+该项目为学习Socket的练手项目，会有设计或实现不合理的地方。仅供自己学习记录。
