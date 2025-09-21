@@ -99,6 +99,10 @@ void upload(void)
 {
 	char filename[20] = {};
 	int size = read(clifd,filename,sizeof(filename));
+	if (strchr(filename, '.') == NULL) {
+		// 只处理带有.分割的文件（即有扩展名）
+		break;
+	}
 
 	char path[50]={};
 	strcat(path,"./files/");
